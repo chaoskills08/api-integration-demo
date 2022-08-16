@@ -4,7 +4,8 @@ var instructionsUrl ="https://api.spoonacular.com/recipes/"+id+"/analyzedInstruc
 var img =document.getElementById("placeholder")
 var responseText = document.getElementById('response-text');
 var buttonName=document.getElementById('buttonName');
-var issueContainer=document.getElementsByClassName("container");
+var ingredients= document.getElementById("ingredientsList");
+var recipeSteps = document.getElementById("steps");
 
 
 function getApiIngredients(ingredientsUrl) {
@@ -19,7 +20,7 @@ function getApiIngredients(ingredientsUrl) {
     for(var i=0;i<data.extendedIngredients.length;i++){
         var ingredientName = document.createElement('li');
         ingredientName.textContent=data.extendedIngredients[i].name;
-        buttonName.append(ingredientName);
+        ingredients.append(ingredientName);
     }
   })
 }
@@ -35,7 +36,7 @@ function getApi(instructionsUrl) { //sometimes this is not properly matched with
         console.log(data[0].steps[i].step);
         var stepName = document.createElement('li');
         stepName.textContent=data[0].steps[i].step
-        buttonName.append(stepName);
+        recipeSteps.append(stepName);
       }
       
     })

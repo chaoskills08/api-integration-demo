@@ -1,20 +1,28 @@
-var apiUrl = "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=0A7CA6E07B05C1D631D0A8694267AE6D&steamids=76561198125798243";
+var apiUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/games/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&format=json'
 
 
 
 function getMeData() {
   fetch(apiUrl, {
-    credentionals: 'same-origin',
-    mode: "cors",
+    method: 'GET',
     header: {
       'Content-Type': 'application/json'
-    }
+    },
+    format: 'json',
   })
-    .then(function (r) {
-      console.log(r)
+
+    .then(function (response) {
+      console.log(response)
+      return response.json()
+
     })
-    .then(function (d) {
-      console.log(d)
+    .then(function (data) {
+      console.log(data)
+      var filterData = data.results.filter(function (game) {
+        return game.aliases !== null
+
+      })
+      console.log(filterData)
     })
 }
 

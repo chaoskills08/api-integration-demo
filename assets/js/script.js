@@ -72,24 +72,6 @@ function idLogic(gameId) {
 //     })
 //   }
 
-  function idLogic(gameId) {
-   
-    if(gameId===1){
-      id='Middle_Eastern';
-    }
-    else if(gameId===2){
-      id = 'Eastern_European';
-    }
-    else if(gameId===3){
-      id='American';
-    }
-    else if(gameId===4){
-      id='Japanese';
-    }
-    else if(gameId===5){
-      id='British';
-    }
-  }
 
 //   Metal Gear Solid 4 1  Middle Eastern
 // Battlefield: Bad Company 2  Eastern European

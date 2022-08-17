@@ -6,8 +6,9 @@ var id = 0 //this is going to be set to whatever the logic is going to be from t
 var apiUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/games/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&format=json'
 var reviewsUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/reviews/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&filter=score:5&sort=score:asc&format=json&limit=5'
 var gameFetch = document.getElementById('gameFetch');
-var gameBtn = document.getElementById('btnId');
-
+var gameBtn = document.getElementsByClassName("gameButtons");
+var GameInfo = document.querySelector("GameInfo");
+console.log(gameBtn)
 
 
 function getGameData() {
@@ -26,13 +27,8 @@ function getGameData() {
     })
     .then(function (data) {
       console.log(data)
-      // var filterData = data.results.filter(function (game) {
-      //   return game.aliases !== null
-      // })
-      // console.log(filterData)
     })
 }
-// getGameData()
 
 function getReviews() {
   fetch(reviewsUrl, {
@@ -58,8 +54,8 @@ function getReviews() {
           var descCreate = document.createElement('p')
           gameCreate.textContent = data.results[0].game.name
           descCreate.textContent = data.results[0].deck
-          gameCreate.appendChild(gameCreate);
-          descCreate.appendChild(descCreate);
+          MGS.appendChild(gameCreate);
+          MGS.appendChild(descCreate);
         }
       }
     }
@@ -136,9 +132,18 @@ function getApi(instructionsUrl) { //sometimes this is not properly matched with
 function idLogic(gameId) {
   id = gameId * 34796
 }
-gameBtn.addEventListener('click', getReviews)
-buttonName.addEventListener("click", function () {
-  console.log("This button works");
-  getApi(instructionsUrl);
-  getApiIngredients(ingredientsUrl);    //will display data, will probably also run the logic from converting value of game to that of a food" 
-})
+
+for (let i = 0; i <= gameBtn.length; i++) {
+  document.querySelector('.gameButtons').addEventListener('click', getReviews)
+  document.querySelector('.gameButtons').addEventListener("click", function () {
+    console.log("This button works");
+    getApi(instructionsUrl);
+    getApiIngredients(ingredientsUrl);
+  })
+}
+
+
+// buttonName.addEventListener("click", function () {
+//     console.log("This button works");
+//     getApi(instructionsUrl);
+//     getApiIngredients(ingredientsUrl);

@@ -1,3 +1,4 @@
+var gameId =0
 var id = 324694 //this is going to be set to whatever the logic is going to be from the game data.
 var ingredientsUrl = 'https://api.spoonacular.com/recipes/'+id+'/information?includeNutrition=false&apiKey=ebbc0b7a9b7c4b61b20f0c5356d4334c';
 var instructionsUrl ="https://api.spoonacular.com/recipes/"+id+"/analyzedInstructions?apiKey=ebbc0b7a9b7c4b61b20f0c5356d4334c" ;
@@ -40,6 +41,10 @@ function getApi(instructionsUrl) { //sometimes this is not properly matched with
       }
       
     })
+  }
+
+  function idLogic(gameId) {
+     id=gameId*34796
   }
 
 buttonName.addEventListener("click",function(){

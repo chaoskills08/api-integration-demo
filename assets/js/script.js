@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var ingredientsUrl = 'https://api.spoonacular.com/recipes/716429/information?includeNutrition=false&apiKey=ebbc0b7a9b7c4b61b20f0c5356d4334c';
 var instructionsUrl = "https://api.spoonacular.com/recipes/324694/analyzedInstructions?apiKey=ebbc0b7a9b7c4b61b20f0c5356d4334c";
 var img = document.getElementById("placeholder")
@@ -73,15 +74,47 @@ function getReviews() {
 }
 
 
+=======
+var gameId =0
+var id = 324694 //this is going to be set to whatever the logic is going to be from the game data.
+var ingredientsUrl = 'https://api.spoonacular.com/recipes/'+id+'/information?includeNutrition=false&apiKey=ebbc0b7a9b7c4b61b20f0c5356d4334c';
+var instructionsUrl ="https://api.spoonacular.com/recipes/"+id+"/analyzedInstructions?apiKey=ebbc0b7a9b7c4b61b20f0c5356d4334c" ;
+var img =document.getElementById("placeholder")
+var responseText = document.getElementById('response-text');
+var buttonName=document.getElementById('buttonName');
+var ingredients= document.getElementById("ingredientsList");
+var recipeSteps = document.getElementById("steps");
+>>>>>>> 5640bfc31b15c61acdcc1dab73fab6e1efa84c85
 
 
 function getApiIngredients(ingredientsUrl) {
   fetch(ingredientsUrl)
+<<<<<<< HEAD
+=======
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    console.log(data.title);
+    img.src=data.image;
+    for(var i=0;i<data.extendedIngredients.length;i++){
+        var ingredientName = document.createElement('li');
+        ingredientName.textContent=data.extendedIngredients[i].name;
+        ingredients.append(ingredientName);
+    }
+  })
+}
+
+function getApi(instructionsUrl) { //sometimes this is not properly matched with an ID, should make logic to display that that has occured, and link to the actual website that the info was taken from. //
+    fetch(instructionsUrl)
+>>>>>>> 5640bfc31b15c61acdcc1dab73fab6e1efa84c85
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
+<<<<<<< HEAD
       console.log(data.title);
       img.src = data.image;
       for (var i = 0; i < data.extendedIngredients.length; i++) {
@@ -104,3 +137,24 @@ function getApi(instructionsUrl) { //sometimes this is not properly matched with
 }
 // getApi(instructionsUrl)
 gameBtn.addEventListener('click', getReviews)
+=======
+      for(var i=0;i<data[0].steps.length;i++){
+        console.log(data[0].steps[i].step);
+        var stepName = document.createElement('li');
+        stepName.textContent=data[0].steps[i].step
+        recipeSteps.append(stepName);
+      }
+      
+    })
+  }
+
+  function idLogic(gameId) {
+     id=gameId*34796
+  }
+
+buttonName.addEventListener("click",function(){
+  console.log("This button works");
+   getApi(instructionsUrl);
+   getApiIngredients(ingredientsUrl);    //will display data, will probably also run the logic from converting value of game to that of a food" 
+})
+>>>>>>> 5640bfc31b15c61acdcc1dab73fab6e1efa84c85

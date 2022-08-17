@@ -12,29 +12,29 @@ var apiUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb
 var reviewsUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/reviews/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&filter=score:5&sort=score:asc&format=json&limit=5'
 var gameFetch = document.getElementById('gameFetch');
 var gameBtn = document.getElementsByClassName("gameButtons");
-var GameInfo = document.querySelector("GameInfo");
-console.log(gameBtn)
+var gameInfo = document.getElementById("gameInfo");
+var gameId = 0
 
 
-function getGameData() {
-  fetch(apiUrl, {
-    method: 'GET',
-    header: {
-      'Content-Type': 'application/json'
-    },
-    format: 'json',
-  })
+// function getGameData() {
+//   fetch(apiUrl, {
+//     method: 'GET',
+//     header: {
+//       'Content-Type': 'application/json'
+//     },
+//     format: 'json',
+//   })
 
-    .then(function (response) {
-      console.log(response)
-      return response.json()
+//     .then(function (response) {
+//       console.log(response)
+//       return response.json()
 
-    })
-    .then(function (data) {
-      console.log(data)
-    })
-}
-
+//     })
+//     .then(function (data) {
+//       console.log(data)
+//     })
+// }
+var buttonData = gameBtn.innerText
 function getReviews() {
   fetch(reviewsUrl, {
     method: 'GET',
@@ -51,21 +51,21 @@ function getReviews() {
     })
     .then(function (data) {
       console.log(data)
-      var buttonClickHandler = function (event) {
-        var dataGame = event.target.getAttribute('data-game');
+      if (buttonData === "Metal Gear Solid 4")
+        console.log(buttonData)
 
-        if (dataGame === "Metal Gear Solid 4") {
-          var gameCreate = document.createElement('h2')
-          var descCreate = document.createElement('p')
-          gameCreate.textContent = data.results[0].game.name
-          descCreate.textContent = data.results[0].deck
-          MGS.appendChild(gameCreate);
-          MGS.appendChild(descCreate);
-        }
+      console.log(gameBtn); {
+        var gameCreate = document.createElement('h2')
+        var descCreate = document.createElement('p')
+        gameCreate.textContent = data.results[0].game.name
+        descCreate.textContent = data.results[0].deck
+        gameInfo.appendChild(gameCreate);
+        gameInfo.appendChild(descCreate);
       }
-    }
+    })
 
-    )
+
+
 }
 
 
@@ -208,11 +208,11 @@ function getApi(instructionsUrl) { //sometimes this is not properly matched with
 
 for (let i = 0; i <= gameBtn.length; i++) {
   document.querySelector('.gameButtons').addEventListener('click', getReviews)
-  document.querySelector('.gameButtons').addEventListener("click", function () {
-    console.log("This button works");
-    getApi(instructionsUrl);
-    getApiIngredients(ingredientsUrl);
-  })
+  // document.querySelector('.gameButtons').addEventListener("click", function () {
+  //   console.log("This button works");
+  //   getApi(instructionsUrl);
+  //   getApiIngredients(ingredientsUrl);
+  // })
 }
 
 

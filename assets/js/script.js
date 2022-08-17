@@ -17,6 +17,8 @@ function getApiIngredients(ingredientsUrl) {
   .then(function (data) {
     console.log(data);
     console.log(data.recipes[0].title);
+    var name =data.recipes[0].title;
+    steps.append(name);
     var img1 =document.createElement("img");
     img1.setAttribute('src',data.recipes[0].image);
     steps.append(img1);
@@ -24,9 +26,9 @@ function getApiIngredients(ingredientsUrl) {
         var ingredientName = document.createElement('li');
         ingredientName.textContent=data.recipes[0].extendedIngredients[i].original;
         ingredients.append(ingredientName);
-    for(var j=0;i<data.recipes[0].analyzedInstructions[0].steps.length;i++){
+    for(var j=0;j<data.recipes[0].analyzedInstructions[0].steps.length;j++){
         var stepName = document.createElement('li');
-        stepName.textContent=data.recipes[0].analyzedInstructions[0].steps[i].step
+        stepName.textContent=data.recipes[0].analyzedInstructions[0].steps[j].step
         steps.append(stepName);
     }
     }

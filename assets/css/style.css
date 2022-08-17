@@ -1,35 +1,49 @@
 
+body {
+  background-color: rgb(251, 251, 251);
+}
+
 .jumbotron{
-  background-color: black;
+  background-color: rgb(255, 80, 80);
   color: aliceblue;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
 }
 
 .box-1 {
-  background-color: black;
-  color: #f0f8ff;
+  background-color: rgb(255, 80, 80);
+  color: aliceblue;
   padding: 10px;
+  height: 100px;
+  font-size: larger;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: 8px solid black;
 }
 
 
 
 .my-container {
   
-  margin: 10px;
+  margin: 30px;
 }
 
 
 .my-row {
-  height: 300px;
-  padding: 10px;
-  margin: 10px;
+  height: 400px;
+  padding: 20px;
+  margin: 100px;
   width: 1700px;
+  background-color: rgba(232, 226, 226, 0.994);
+  border: 20px solid black;
+  
 }
 
 .my-col {
   border: 3px solid black;
-  
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
 
 
 

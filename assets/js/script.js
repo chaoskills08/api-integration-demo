@@ -50,10 +50,12 @@ function getReviews() {
     })
     .then(function (data) {
       console.log(data)
-      var random = Math.floor(Math.random() * data.results.length)
-      console.log(random)
-      if (random === 0) {
-        console.log('good')
+      var buttonClickHandler = function (event) {
+        var dataGame = event.target.getAttribute('data-game');
+
+        if (dataGame === "Metal Gear Solid 4") {
+
+        }
       }
       // if (data.results[0].game.name === "Metal Gear Solid 4: Guns of the Patriots") {
       //   console.log('good')

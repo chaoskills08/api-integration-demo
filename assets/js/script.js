@@ -95,6 +95,25 @@ function getApiIngredients(ingredientsUrl) {
       }
     })
 }
+// getApiIngredients(ingredientsUrl);
+
+
+function getApi(instructionsUrl) { //sometimes this is not properly matched with an ID, should make logic to display that that has occured, and link to the actual website that the info was taken from. //
+  fetch(instructionsUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      console.log(data.title);
+      img.src = data.image;
+      for (var i = 0; i < data.extendedIngredients.length; i++) {
+        var ingredientName = document.createElement('li');
+        ingredientName.textContent = data.extendedIngredients[i].name;
+        ingredients.append(ingredientName);
+      }
+    })
+}
 
 function getApi(instructionsUrl) { //sometimes this is not properly matched with an ID, should make logic to display that that has occured, and link to the actual website that the info was taken from. //
   fetch(instructionsUrl)
@@ -112,6 +131,7 @@ function getApi(instructionsUrl) { //sometimes this is not properly matched with
 
     })
 }
+// getApi(instructionsUrl);
 
 function idLogic(gameId) {
   id = gameId * 34796

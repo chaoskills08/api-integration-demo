@@ -1,11 +1,9 @@
 var gameId = 0;
 //this is going to be set to whatever the logic is going to be from the game data.
 var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=ce59c3857d88456a8cfdea4cbb92dd54&cuisine=' + id;
-var img = document.getElementById("placeholder")
 var responseText = document.getElementById('response-text');
 var buttonName = document.getElementById('genBtn');
 var ingredients = document.getElementById("ingredientsList");
-var img = document.getElementById("placeholder")
 var responseText = document.getElementById('response-text');
 var id = 0 //this is going to be set to whatever the logic is going to be from the game data.
 var apiUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/games/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&format=json'
@@ -17,6 +15,8 @@ var titleFoodEl = document.getElementById("titleFood");
 var ingredientsListEl = document.getElementById("ingList");
 var stepListEl = document.getElementById("stepList");
 var savedData = [];
+var savedDataFood = [];
+var savedDataGame = [];
 
 function getReviews(title) {
   fetch(reviewsUrl, {
@@ -30,7 +30,6 @@ function getReviews(title) {
     .then(function (response) {
       console.log(response)
       return response.json()
-
     })
 
     .then(function (data) {
@@ -38,7 +37,11 @@ function getReviews(title) {
       // var buttonData = gameBtn.innerText
       // if (document.getElementById('btn1').value() === "Metal Gear Solid 4") {
       if (title === 'Metal Gear Solid 4') {
-        // console.log('#btn1')
+        savedDataGame.push(data.results[0].game.name);
+        if (savedDataGame.length > 5) { //returns last 5 entries of food titles
+          savedDataGame.pop();
+        }
+        localStorage.setItem("savedDataGame", JSON.stringify(savedDataGame));
         var gameCreate = document.getElementById('h2Create')
         var descCreate = document.getElementById('pCreate')
         gameCreate.textContent = null
@@ -48,11 +51,15 @@ function getReviews(title) {
         gameInfo.appendChild(gameCreate)
         descInfo.appendChild(descCreate)
         gameId = 1
-        idLogic(gameId = 1)
+        idLogic(gameId)
         getApiIngredients(ingredientsUrl)
-
       }
       else if (title === "Burnout Paradise") {
+        savedDataGame.push(data.results[1].game.name);
+        if (savedDataGame.length > 5) { //returns last 5 entries of food titles
+          savedDataGame.pop();
+        }
+        localStorage.setItem("savedDataGame", JSON.stringify(savedDataGame));
         var gameCreate = document.getElementById('h2Create')
         var descCreate = document.getElementById('pCreate')
         gameCreate.textContent = null
@@ -66,6 +73,11 @@ function getReviews(title) {
         getApiIngredients(ingredientsUrl)
       }
       else if (title === "Professor Layton and the Curious Village") {
+        savedDataGame.push(data.results[2].game.name);
+        if (savedDataGame.length > 5) { //returns last 5 entries of food titles
+          savedDataGame.pop();
+        }
+        localStorage.setItem("savedDataGame", JSON.stringify(savedDataGame));
         var gameCreate = document.getElementById('h2Create')
         var descCreate = document.getElementById('pCreate')
         gameCreate.textContent = null
@@ -79,6 +91,11 @@ function getReviews(title) {
         getApiIngredients(ingredientsUrl)
       }
       else if (title === "Condemned 2: Bloodshot") {
+        savedDataGame.push(data.results[3].game.name);
+        if (savedDataGame.length > 5) { //returns last 5 entries of food titles
+          savedDataGame.pop();
+        }
+        localStorage.setItem("savedDataGame", JSON.stringify(savedDataGame));
         var gameCreate = document.getElementById('h2Create')
         var descCreate = document.getElementById('pCreate')
         gameCreate.textContent = null
@@ -92,6 +109,11 @@ function getReviews(title) {
         getApiIngredients(ingredientsUrl)
       }
       else if (title === "Grand Theft Auto IV") {
+        savedDataGame.push(data.results[4].game.name);
+        if (savedDataGame.length > 5) { //returns last 5 entries of food titles
+          savedDataGame.pop();
+        }
+        localStorage.setItem("savedDataGame", JSON.stringify(savedDataGame));
         var gameCreate = document.getElementById('h2Create')
         var descCreate = document.getElementById('pCreate')
         gameCreate.textContent = null
@@ -110,37 +132,41 @@ function getReviews(title) {
 var gameId = 0
 //this is going to be set to whatever the logic is going to be from the game data.
 
-
-
 function getApiIngredients(ingredientsUrl) {
   fetch(ingredientsUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
       var name = data.recipes[0].title;
-      titleFoodEl.textContent = name;
+      console.log(data);
+      var header = document.createElement('h2');
+      header.textContent = name;
+      titleFoodEl.appendChild(header);
+      savedDataFood.push(data.recipes[0].title);
+      if (savedDataFood.length > 5) { //returns last 5 entries of food titles
+        savedDataFood.pop();
+      }
+      localStorage.setItem("savedDataFood", JSON.stringify(savedDataFood));
       var img = document.createElement('img');
       img.setAttribute('id', 'foodImg');
       img.setAttribute('src', data.recipes[0].image);
       titleFoodEl.appendChild(img);
+      document.getElementById('foodImg').width = '350';
+      document.getElementById('foodImg').height = '300';
       for (var i = 0; i < data.recipes[0].extendedIngredients.length; i++) {
         var ingredientName = document.createElement('li');
-        document.getElementById('foodImg').width = '350';
-        document.getElementById('foodImg').height = '300';
         ingredientName.textContent = data.recipes[0].extendedIngredients[i].original;
         ingredientsListEl.append(ingredientName);
       }
       for (var j = 0; j < data.recipes[0].analyzedInstructions[0].steps.length; j++) {
         var stepName = document.createElement('li');
         stepName.textContent = data.recipes[0].analyzedInstructions[0].steps[j].step
+        console.log(data.recipes[0].analyzedInstructions[0].steps[j].step)
         stepListEl.append(stepName);
       }
-    }
-    )
+    })
 }
-
 
 function idLogic(gameId) {
 
@@ -161,44 +187,17 @@ function idLogic(gameId) {
   }
 }
 
-
-
-//   Metal Gear Solid 4 1  Middle Eastern
-// Battlefield: Bad Company 2  Eastern European
-// Burnout Paradise 3  American
-// Professor Layton and the Curious Village 4 Japanese 
-// Condemned 2: Bloodshot 5 British
-
-// buttonName.addEventListener("click", function () {
-//   console.log("This button works");
-//   //  getApi(instructionsUrl);
-//   getApiIngredients(ingredientsUrl);    //will display data, will probably also run the logic from converting value of game to that of a food" 
-// })
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//     console.log(data.title);
-//     img.src = data.image;
-//     for (var i = 0; i < data.extendedIngredients.length; i++) {
-//       var ingredientName = document.createElement('li');
-//       ingredientName.textContent = data.extendedIngredients[i].name;
-//       ingredients.append(ingredientName);
-//     }
-//   })
-
-
-
-function saveData() {
-  savedData.push(data.recipes[0].title);
-  localStorage.setItem("savedData", JSON.stringify(savedData));
-}
 function renderMessage() {
-  var showData = JSON.parse(localStorage.getItem("savedData"))
-
+  var showDataFood = JSON.parse(localStorage.getItem("savedDataFood"))
+  var showDataGame = JSON.parse(localStorage.getItem("savedDataGame"))
+  for (var k = 0; k < showDataFood.length; k++) {
+    var savedStuff = document.createElement('p');
+    savedStuff.textContent = showDataGame + " and " + showDataFood;
+    savedContainer.append(savedStuff);
+  }
 }
 
+renderMessage()
 
 for (let i = 0; i < gameBtns.length; i++) {
   const gameBtn = gameBtns[i]
@@ -212,9 +211,3 @@ for (let i = 0; i < gameBtns.length; i++) {
   //   getApiIngredients(ingredientsUrl);
   // })
 }
-
-
-// buttonName.addEventListener("click", function () {
-//     console.log("This button works");
-//     getApi(instructionsUrl);
-//     getApiIngredients(ingredientsUrl);

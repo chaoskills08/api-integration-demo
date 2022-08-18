@@ -1,6 +1,6 @@
 var gameId = 0;
 //this is going to be set to whatever the logic is going to be from the game data.
-var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=ebbc0b7a9b7c4b61b20f0c5356d4334c&cuisine=' + id;
+var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=ce59c3857d88456a8cfdea4cbb92dd54&cuisine=' + id;
 var img = document.getElementById("placeholder")
 var responseText = document.getElementById('response-text');
 var buttonName = document.getElementById('genBtn');
@@ -13,6 +13,10 @@ var reviewsUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giant
 var gameBtns = document.getElementsByClassName("gameButtons");
 var gameInfo = document.getElementById("gameInfo");
 var descInfo = document.getElementById('descInfo');
+var titleFoodEl = document.getElementById("titleFood");
+var ingredientsListEl = document.getElementById("ingList");
+var stepListEl = document.getElementById("stepList");
+var savedData = [];
 
 function getReviews(title) {
   fetch(reviewsUrl, {
@@ -35,44 +39,70 @@ function getReviews(title) {
       // if (document.getElementById('btn1').value() === "Metal Gear Solid 4") {
       if (title === 'Metal Gear Solid 4') {
         // console.log('#btn1')
-        var gameCreate = document.createElement('h2')
-        var descCreate = document.createElement('p')
+        var gameCreate = document.getElementById('h2Create')
+        var descCreate = document.getElementById('pCreate')
+        gameCreate.textContent = null
+        descCreate.textContent = null
         gameCreate.textContent = data.results[0].game.name
         descCreate.textContent = data.results[0].deck
         gameInfo.appendChild(gameCreate)
         descInfo.appendChild(descCreate)
+        gameId = 1
+        idLogic(gameId = 1)
+        getApiIngredients(ingredientsUrl)
+
       }
       else if (title === "Burnout Paradise") {
-        var gameCreate = document.createElement('h2')
-        var descCreate = document.createElement('p')
+        var gameCreate = document.getElementById('h2Create')
+        var descCreate = document.getElementById('pCreate')
+        gameCreate.textContent = null
+        descCreate.textContent = null
         gameCreate.textContent = data.results[1].game.name
         descCreate.textContent = data.results[1].deck
         gameInfo.appendChild(gameCreate)
         descInfo.appendChild(descCreate)
+        gameId = 2
+        idLogic(gameId)
+        getApiIngredients(ingredientsUrl)
       }
       else if (title === "Professor Layton and the Curious Village") {
-        var gameCreate = document.createElement('h2')
-        var descCreate = document.createElement('p')
+        var gameCreate = document.getElementById('h2Create')
+        var descCreate = document.getElementById('pCreate')
+        gameCreate.textContent = null
+        descCreate.textContent = null
         gameCreate.textContent = data.results[2].game.name
         descCreate.textContent = data.results[2].deck
         gameInfo.appendChild(gameCreate)
         descInfo.appendChild(descCreate)
+        gameId = 3
+        idLogic(gameId)
+        getApiIngredients(ingredientsUrl)
       }
       else if (title === "Condemned 2: Bloodshot") {
-        var gameCreate = document.createElement('h2')
-        var descCreate = document.createElement('p')
+        var gameCreate = document.getElementById('h2Create')
+        var descCreate = document.getElementById('pCreate')
+        gameCreate.textContent = null
+        descCreate.textContent = null
         gameCreate.textContent = data.results[3].game.name
         descCreate.textContent = data.results[3].deck
         gameInfo.appendChild(gameCreate)
         descInfo.appendChild(descCreate)
+        gameId = 4
+        idLogic(gameId)
+        getApiIngredients(ingredientsUrl)
       }
       else if (title === "Grand Theft Auto IV") {
-        var gameCreate = document.createElement('h2')
-        var descCreate = document.createElement('p')
+        var gameCreate = document.getElementById('h2Create')
+        var descCreate = document.getElementById('pCreate')
+        gameCreate.textContent = null
+        descCreate.textContent = null
         gameCreate.textContent = data.results[4].game.name
         descCreate.textContent = data.results[4].deck
         gameInfo.appendChild(gameCreate)
         descInfo.appendChild(descCreate)
+        gameId = 5
+        idLogic(gameId)
+        getApiIngredients(ingredientsUrl)
       }
     })
 }
@@ -88,25 +118,27 @@ function getApiIngredients(ingredientsUrl) {
       return response.json();
     })
     .then(function (data) {
+      console.log(data)
       var name = data.recipes[0].title;
       titleFoodEl.textContent = name;
       var img = document.createElement('img');
       img.setAttribute('id', 'foodImg');
-      document.getElementById('foodImg').width = '350';
-      document.getElementById('foodImg').height = '300';
       img.setAttribute('src', data.recipes[0].image);
       titleFoodEl.appendChild(img);
       for (var i = 0; i < data.recipes[0].extendedIngredients.length; i++) {
         var ingredientName = document.createElement('li');
+        document.getElementById('foodImg').width = '350';
+        document.getElementById('foodImg').height = '300';
         ingredientName.textContent = data.recipes[0].extendedIngredients[i].original;
         ingredientsListEl.append(ingredientName);
-        for (var j = 0; j < data.recipes[0].analyzedInstructions[0].steps.length; j++) {
-          var stepName = document.createElement('li');
-          stepName.textContent = data.recipes[0].analyzedInstructions[0].steps[j].step
-          stepListEl.append(stepName);
-        }
       }
-    })
+      for (var j = 0; j < data.recipes[0].analyzedInstructions[0].steps.length; j++) {
+        var stepName = document.createElement('li');
+        stepName.textContent = data.recipes[0].analyzedInstructions[0].steps[j].step
+        stepListEl.append(stepName);
+      }
+    }
+    )
 }
 
 

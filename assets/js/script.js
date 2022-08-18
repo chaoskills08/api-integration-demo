@@ -5,32 +5,14 @@ var responseText = document.getElementById('response-text');
 var id = 0 //this is going to be set to whatever the logic is going to be from the game data.
 var apiUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/games/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&format=json'
 var reviewsUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/reviews/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&filter=score:5&sort=score:asc&format=json&limit=5'
-var gameFetch = document.getElementById('gameFetch');
-var gameBtn = document.getElementsByClassName("gameButtons");
+var gameBtns = document.getElementsByClassName("gameButtons");
 var gameInfo = document.getElementById("gameInfo");
+var descInfo = document.getElementById("descInfo");
 var gameId = 0
+// var btn1Value = document.getElementById('btn1').value()
+// console.log(btn1Value)
 
-
-// function getGameData() {
-//   fetch(apiUrl, {
-//     method: 'GET',
-//     header: {
-//       'Content-Type': 'application/json'
-//     },
-//     format: 'json',
-//   })
-
-//     .then(function (response) {
-//       console.log(response)
-//       return response.json()
-
-//     })
-//     .then(function (data) {
-//       console.log(data)
-//     })
-// }
-var buttonData = gameBtn.innerText
-function getReviews() {
+function getReviews(title) {
   fetch(reviewsUrl, {
     method: 'GET',
     header: {
@@ -44,25 +26,54 @@ function getReviews() {
       return response.json()
 
     })
+
     .then(function (data) {
       console.log(data)
-      if (buttonData === "Metal Gear Solid 4")
-        console.log(buttonData)
-
-      console.log(gameBtn); {
+      // var buttonData = gameBtn.innerText
+      // if (document.getElementById('btn1').value() === "Metal Gear Solid 4") {
+      if (title === 'Metal Gear Solid 4') {
+        // console.log('#btn1')
         var gameCreate = document.createElement('h2')
         var descCreate = document.createElement('p')
         gameCreate.textContent = data.results[0].game.name
         descCreate.textContent = data.results[0].deck
-        gameInfo.appendChild(gameCreate);
-        gameInfo.appendChild(descCreate);
+        gameInfo.appendChild(gameCreate)
+        descInfo.appendChild(descCreate)
+      }
+      else if (title === "Burnout Paradise") {
+        var gameCreate = document.createElement('h2')
+        var descCreate = document.createElement('p')
+        gameCreate.textContent = data.results[1].game.name
+        descCreate.textContent = data.results[1].deck
+        gameInfo.appendChild(gameCreate)
+        descInfo.appendChild(descCreate)
+      }
+      else if (title === "Professor Layton and the Curious Village") {
+        var gameCreate = document.createElement('h2')
+        var descCreate = document.createElement('p')
+        gameCreate.textContent = data.results[2].game.name
+        descCreate.textContent = data.results[2].deck
+        gameInfo.appendChild(gameCreate)
+        descInfo.appendChild(descCreate)
+      }
+      else if (title === "Condemned 2: Bloodshot") {
+        var gameCreate = document.createElement('h2')
+        var descCreate = document.createElement('p')
+        gameCreate.textContent = data.results[3].game.name
+        descCreate.textContent = data.results[3].deck
+        gameInfo.appendChild(gameCreate)
+        descInfo.appendChild(descCreate)
+      }
+      else if (title === "Grand Theft Auto IV") {
+        var gameCreate = document.createElement('h2')
+        var descCreate = document.createElement('p')
+        gameCreate.textContent = data.results[4].game.name
+        descCreate.textContent = data.results[4].deck
+        gameInfo.appendChild(gameCreate)
+        descInfo.appendChild(descCreate)
       }
     })
-
-
-
 }
-
 
 var gameId = 0
 var id = 324694 //this is going to be set to whatever the logic is going to be from the game data.
@@ -133,8 +144,12 @@ function idLogic(gameId) {
   id = gameId * 34796
 }
 
-for (let i = 0; i <= gameBtn.length; i++) {
-  document.querySelector('.gameButtons').addEventListener('click', getReviews)
+for (let i = 0; i < gameBtns.length; i++) {
+  const gameBtn = gameBtns[i]
+
+  gameBtn.addEventListener('click', function () {
+    getReviews(gameBtn.dataset.game) // or pass gameBtn.innerText i don't care
+  })
   // document.querySelector('.gameButtons').addEventListener("click", function () {
   //   console.log("This button works");
   //   getApi(instructionsUrl);

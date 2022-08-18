@@ -40,13 +40,14 @@ body {
 
 .my-container {
  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .my-row {
   height: 400px;
-  padding: 20px;
-  margin: 100px;
   width: 1700px;
   background-color: rgba(232, 226, 226, 0.994);
   border: 20px solid black;
@@ -69,3 +70,7 @@ body {
   background: rgb(255, 46, 38);
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+}

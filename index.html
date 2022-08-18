@@ -19,7 +19,7 @@
     <div class="container text-center">
       <h1 class="display-4">GamerFoods</h1>
       <p class="lead">A video game and food generator application.</p>
-      <h2>Have you ever wondered what game you should play? Better yet, have you ever wondered what you  should eat
+      <h2>Have you ever wondered what game you should play? Better yet, have you ever wondered what you should eat
         while
         playing said game? Well luckily for you, we solved those issues here at GamerFoods!
         All you need to do is click one of the five buttons below and our site will generate a game along with its
@@ -46,11 +46,13 @@
     <div class="container my-container">
       <div class="row my-row">
         <div class="col-md-4 my-col" id="gameInfo">
-          <h1>Game</h1>
+          <h1><u>Game</u></h1>
+          <h2 id="h2Create"></h2>
         </div>
 
-        <div class="col-md-8 my-col" id="descInfo" >
-          <h2>Description</h2>
+        <div class="col-md-8 my-col" id="descInfo">
+          <h2><u>Description</u></h2>
+          <p id="pCreate"></p>
         </div>
       </div>
     </div>
@@ -61,19 +63,23 @@
   <div>
     <div class="container my-container">
       <div class="row my-row">
-        <div class="col-md-4 my-col" id="titleFood">
-          <h1>Food</h1>
+        <div class="col-4 my-col" id="titleFood">
+          <h1><u>Food</u></h1>
         </div>
 
-        <div class="col-md-8 my-col">
-          <h2>Ingredients</h2>
+        <div class="col-8 my-col" id="">
+          <h2><u>Ingredients</u></h2>
           <ul id="ingList"></ul>
           <ol id="stepList"></ol>
         </div>
       </div>
     </div>
   </div>
-
+  <div class="row my-row">
+    <div class="col-md-5 my-col" id="savedContainer">
+      <h2>History</h2>
+    </div>
+  </div>
 
 
   <script src="./assets/js/script.js"></script>

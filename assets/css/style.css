@@ -34,14 +34,12 @@ body {
   border-top: 4px solid rgb(0, 0, 0);
   border-bottom: 4px solid rgb(0, 0, 0);
   background-image: url('../images/image3.webp');
-  
 }
 
 
 
 .my-container {
  margin: 30px;
- 
 }
 
 
@@ -52,8 +50,6 @@ body {
   width: 1700px;
   background-color: rgba(232, 226, 226, 0.994);
   border: 20px solid black;
-  
-  
 }
 
 .my-col {
@@ -72,3 +68,4 @@ body {
 .gameButtons:hover {
   background: rgb(255, 46, 38);
 }
+

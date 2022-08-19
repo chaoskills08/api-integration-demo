@@ -1,7 +1,7 @@
 
 body {
   background-color: rgb(251, 251, 251);
-  background-image: url('../images/vertim2.jpg');
+  background-image: url('../images/andrew-kliatskyi-ZceT2m9wV7w-unsplash.jpg');
   background-repeat:unset
 }
 
@@ -10,8 +10,8 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-style: italic;
   border-bottom: 8px solid black;
-  background-image: url('../images/image3.webp');
-  text-shadow: 2px 2px rgb(255, 46, 38) ;
+  background-image: url('../images/angelo-abear-Tmn0epKq7vI-unsplash.jpg');
+  text-shadow: 7px 7px rgb(0, 0, 0) ;
 }
 
 .lead {
@@ -21,22 +21,6 @@ body {
 .jumbotron h2 {
   text-shadow: 2px 2px rgb(6, 96, 213);
 }
-
-
-.box-1 {
-  background-color: rgb(0, 0, 0);
-  color: aliceblue;
-  padding: 10px;
-  height: 100px;
-  font-size: larger;
-  text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  border-top: 4px solid rgb(0, 0, 0);
-  border-bottom: 4px solid rgb(0, 0, 0);
-  background-image: url('../images/image3.webp');
-}
-
-
 
 .my-container {
  margin: 30px;
@@ -50,8 +34,18 @@ body {
   height: 400px;
   width: 1700px;
   background-color: rgba(232, 226, 226, 0.994);
-  border: 20px solid black;
+  border: 20px solid rgb(145, 145, 145);
 }
+
+.my-row-2 {
+  height: 400px;
+  width: 1000px;
+  background-color: rgba(232, 226, 226, 0.994);
+  border: 20px solid rgb(145, 145, 145);
+}
+
+
+
 
 .my-col {
   border: 3px solid black;
@@ -60,7 +54,7 @@ body {
 }
 
 .gameButtons {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(196, 37, 37);
   color: aliceblue;
   padding: 10px 15px;
   border: 2px solid aliceblue;

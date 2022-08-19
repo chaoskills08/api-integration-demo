@@ -18,9 +18,9 @@ var savedData = [];
 var savedDataFood = [];
 var savedDataGame = [];
 var foodInfo = document.querySelector('#foodInfo').children;
-console.log(foodInfo)
+// console.log(foodInfo)
 
-function getReviews(title) {
+const getReviews = function(title) {
   fetch(reviewsUrl, {
     method: 'GET',
     header: {
@@ -30,12 +30,12 @@ function getReviews(title) {
   })
 
     .then(function (response) {
-      console.log(response)
+      // console.log(response)
       return response.json()
     })
 
     .then(function (data) {
-      console.log(data)
+      // console.log(data)
       // var buttonData = gameBtn.innerText
       // if (document.getElementById('btn1').value() === "Metal Gear Solid 4") {
       if (title === 'Metal Gear Solid 4') {
@@ -43,7 +43,7 @@ function getReviews(title) {
         if (savedDataGame.length > 5) { //returns last 5 entries of food titles
           savedDataGame.pop();
         }
-        console.log(savedDataGame)
+        // console.log(savedDataGame)
         localStorage.setItem("savedDataGame", JSON.stringify(savedDataGame));
         var gameCreate = document.getElementById('h2Create')
         var descCreate = document.getElementById('pCreate')
@@ -142,7 +142,7 @@ function getApiIngredients(ingredientsUrl) {
     })
     .then(function (data) {
       var name = data.recipes[0].title;
-      console.log(data);
+      // console.log(data);
       var header = document.createElement('h2');
       header.setAttribute("class", "foodElement")
       header.textContent = name;
@@ -155,6 +155,7 @@ function getApiIngredients(ingredientsUrl) {
       var img = document.createElement('img');
       img.setAttribute('id', 'foodImg');
       img.setAttribute('src', data.recipes[0].image);
+      img.setAttribute('class', 'foodElement')
       titleFoodEl.appendChild(img);
       document.getElementById('foodImg').width = '350';
       document.getElementById('foodImg').height = '300';
@@ -168,25 +169,25 @@ function getApiIngredients(ingredientsUrl) {
         var stepName = document.createElement('li');
         stepName.setAttribute('class', 'foodElement')
         stepName.textContent = data.recipes[0].analyzedInstructions[0].steps[j].step
-        console.log(data.recipes[0].analyzedInstructions[0].steps[j].step)
+        // console.log(data.recipes[0].analyzedInstructions[0].steps[j].step)
         stepListEl.append(stepName);
       }
     })
 }
-function clearData() {
+function clearData(gameChoice) {
   var clearDivs = document.getElementById('foodInfo').getElementsByClassName('foodElement')
-  console.log(clearDivs)
-
-  console.log('is trueee')
-  for (let i = 0; i < clearDivs.length; i++) {
+  // console.log('is trueee')
+  for (let i = clearDivs.length - 1; i => 0; i--) {
     var currentElement = clearDivs[i]
-    // console.log(currentElement.tagName)
-    if (currentElement.localName === 'ul') {
-      console.log(currentElement)
-      Node.removeChild(currentElement)
+    // console.log(currentElement)
+    if (currentElement.localName === 'li') {
+      currentElement.remove()
+    } else if (currentElement.localName === 'img') {
+      currentElement.remove()
+    } else if (currentElement.localName === 'h2') {
+      currentElement.remove()
     }
   }
-
 }
 
 function idLogic(gameId) {
@@ -223,12 +224,13 @@ function idLogic(gameId) {
 
 for (let i = 0; i < gameBtns.length; i++) {
   const gameBtn = gameBtns[i]
-
+  
   gameBtn.addEventListener('click', function () {
+    var gameChoice = gameBtn.dataset.game
     if (ingredientsListEl.hasChildNodes()) {
-      clearData()
+      clearData(gameChoice)
     } else {
-      getReviews(gameBtn.dataset.game)
+      getReviews(gameChoice)
     }
   })
 }

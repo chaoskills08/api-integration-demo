@@ -1,17 +1,16 @@
-
 body {
   background-color: rgb(251, 251, 251);
   background-image: url('../images/vertim2.jpg');
-  background-repeat:unset
+  background-repeat: unset
 }
 
-.jumbotron{
+.jumbotron {
   color: aliceblue;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-style: italic;
   border-bottom: 8px solid black;
   background-image: url('../images/image3.webp');
-  text-shadow: 2px 2px rgb(255, 46, 38) ;
+  text-shadow: 2px 2px rgb(255, 46, 38);
 }
 
 .lead {
@@ -33,27 +32,24 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   border-top: 4px solid rgb(0, 0, 0);
   border-bottom: 4px solid rgb(0, 0, 0);
-  background-image: url('../images/image3.webp');
-  
+
 }
 
 
 
 .my-container {
- margin: 30px;
- 
+  margin: 30px;
+
 }
 
 
 .my-row {
-  height: 400px;
-  padding: 20px;
-  margin: 100px;
-  width: 1700px;
+  /* padding: 20px;
+  margin: 100px; */
   background-color: rgba(232, 226, 226, 0.994);
   border: 20px solid black;
-  
-  
+
+
 }
 
 .my-col {
@@ -71,4 +67,9 @@ body {
 
 .gameButtons:hover {
   background: rgb(255, 46, 38);
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
 }

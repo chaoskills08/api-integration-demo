@@ -26,9 +26,7 @@
         description and also a food item along with its recipe!</h2>
     </div>
   </div>
-
-  <br>
-
+<div class="container d-flex flex-column">
   <div class="container text-center">
     <div class="game">
       <button data-game="Metal Gear Solid 4" type="btn" class="gameButtons" id="btn1">Metal Gear Solid 4</button>
@@ -39,8 +37,6 @@
       <button data-game="Grand Theft Auto IV" type="btn" class="gameButtons">Grand Theft Auto IV</button>
     </div>
   </div>
-
-  <br>
 
   <div class="flex">
     <div class="container my-container">
@@ -58,8 +54,6 @@
     </div>
   </div>
 
-  <br>
-
   <div class="flex">
     <div class="container my-container" id="foodInfo">
       <div class="row my-row foodElement">
@@ -69,30 +63,30 @@
 
         <div class="col-8 my-col foodElement">
           <h2 class="foodElement"><u class="foodElement">Ingredients</u></h2>
-          <ul id="ingList" class="foodElement"></ul>
-          <ol id="stepList" class="foodElement"></ol>
+          <ul id="ingList" class="list-group-flush foodElement"></ul>
+          <ol id="stepList" class="list-group-flush list-group-numbered foodElement"></ol>
         </div>
       </div>
     </div>
   </div>
-
-  <div id="savedContainer">
-    
-  <div class="flex">
-    <div class="row my-row-2">
-    <div class="col-md-12 my-col" id="savedContainer">
-      <h2>History</h2>
-    </div>
-  </div>
 </div>
+  <div id="savedContainer">
+
+    <div class="flex">
+      <div class="row my-row-2">
+        <div class="col-md-12 my-col" id="savedContainer">
+          <h2>History</h2>
+        </div>
+      </div>
+    </div>
 
 
-  <script src="./assets/js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-    crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"></script>
 
 </html>

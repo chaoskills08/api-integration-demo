@@ -1,6 +1,6 @@
 var gameId = 0;
 //this is going to be set to whatever the logic is going to be from the game data.
-var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=ce59c3857d88456a8cfdea4cbb92dd54&cuisine=' + id;
+var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=eef65463463f4606aa3cc0949221a1d6&cuisine=' + id;
 var responseText = document.getElementById('response-text');
 var buttonName = document.getElementById('genBtn');
 var ingredients = document.getElementById("ingredientsList");
@@ -156,17 +156,17 @@ function getApiIngredients(ingredientsUrl) {
       img.setAttribute('id', 'foodImg');
       img.setAttribute('src', data.recipes[0].image);
       titleFoodEl.appendChild(img);
-      document.getElementById('foodImg').width = '350';
-      document.getElementById('foodImg').height = '300';
       for (var i = 0; i < data.recipes[0].extendedIngredients.length; i++) {
         var ingredientName = document.createElement('li');
         ingredientName.setAttribute('class', 'foodElement')
+        ingredientName.setAttribute('class', 'list-group-item')
         ingredientName.textContent = data.recipes[0].extendedIngredients[i].original;
         ingredientsListEl.append(ingredientName);
       }
       for (var j = 0; j < data.recipes[0].analyzedInstructions[0].steps.length; j++) {
         var stepName = document.createElement('li');
-        stepName.setAttribute('class', 'foodElement')
+        stepName.setAttribute('class', 'foodElement');
+        stepName.setAttribute('class', 'list-group-item');
         stepName.textContent = data.recipes[0].analyzedInstructions[0].steps[j].step
         console.log(data.recipes[0].analyzedInstructions[0].steps[j].step)
         stepListEl.append(stepName);

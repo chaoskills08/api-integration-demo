@@ -1,7 +1,12 @@
 body {
   background-color: rgb(251, 251, 251);
   background-image: url('../images/andrew-kliatskyi-ZceT2m9wV7w-unsplash.jpg');
-  background-repeat:unset
+  background-repeat: unset;
+  margin: 0 auto;
+}
+
+.li {
+ background-color:  rgba(232, 226, 226, 0.994);
 }
 
 .jumbotron {
@@ -10,7 +15,7 @@ body {
   font-style: italic;
   border-bottom: 8px solid black;
   background-image: url('../images/angelo-abear-Tmn0epKq7vI-unsplash.jpg');
-  text-shadow: 7px 7px rgb(0, 0, 0) ;
+  text-shadow: 7px 7px rgb(0, 0, 0);
 }
 
 .lead {
@@ -24,10 +29,10 @@ body {
 
 .my-container {
   margin: 30px;
-  }
-  
+}
+
 .my-container {
- margin: 30px;
+  margin: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,9 +50,6 @@ body {
   background-color: rgba(232, 226, 226, 0.994);
   border: 20px solid rgb(145, 145, 145);
 }
-
-
-
 
 .my-col {
   border: 3px solid black;
@@ -69,4 +71,22 @@ body {
 .flex {
   display: flex;
   justify-content: center;
+}
+
+.foodElement ul {
+list-style: circle;
+text-align: justify;
+font-size: larger;
+}
+
+.foodElement ol {
+  font-size: larger;
+  text-align: justify;
+}
+
+#foodImg {
+padding: 5px;
+width: 275px;
+height: 275px;
+  
 }

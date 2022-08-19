@@ -1,13 +1,13 @@
 var gameId = 0;
 //this is going to be set to whatever the logic is going to be from the game data.
-var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=ebbc0b7a9b7c4b61b20f0c5356d4334c&cuisine=' + id;
+var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=eef65463463f4606aa3cc0949221a1d6&cuisine=' + id;
 var responseText = document.getElementById('response-text');
 var buttonName = document.getElementById('genBtn');
 var ingredients = document.getElementById("ingredientsList");
 var responseText = document.getElementById('response-text');
 var id = 0 //this is going to be set to whatever the logic is going to be from the game data.
-var apiUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/games/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&format=json'
-var reviewsUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/reviews/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&filter=score:5&sort=score:asc&format=json&limit=5'
+var apiUrl = 'https://www.giantbomb.com/api/games/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&format=json'
+var reviewsUrl = 'https://www.giantbomb.com/api/reviews/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&filter=score:5&sort=score:asc&format=json&limit=5'
 var gameBtns = document.getElementsByClassName("gameButtons");
 var gameInfo = document.getElementById("gameInfo");
 var descInfo = document.getElementById('descInfo');
@@ -28,7 +28,7 @@ const getReviews = function(title) {
     },
     format: 'json',
   })
-
+  
     .then(function (response) {
       // console.log(response)
       return response.json()
@@ -210,17 +210,15 @@ function idLogic(gameId) {
 }
 
 // COMMENTED OUT FOR FUTURE DEV
-// function renderMessage() {
-//   var showDataFood = JSON.parse(localStorage.getItem("savedDataFood"))
-//   var showDataGame = JSON.parse(localStorage.getItem("savedDataGame"))
-//   for (var k = 0; k < showDataFood.length; k++) {
-//     var savedStuff = document.createElement('p');
-//     savedStuff.textContent = showDataGame + " and " + showDataFood;
-//     savedContainer.append(savedStuff);
-//   }
-// }
-
-// renderMessage()
+function renderMessage() {
+  var showDataFood = JSON.parse(localStorage.getItem("savedDataFood"))
+  var showDataGame = JSON.parse(localStorage.getItem("savedDataGame"))
+  for (var k = 0; k < showDataFood.length; k++) {
+    var savedStuff = document.createElement('p');
+    savedStuff.textContent = showDataGame + " and " + showDataFood;
+    savedContainer.append(savedStuff);
+  }
+}
 
 for (let i = 0; i < gameBtns.length; i++) {
   const gameBtn = gameBtns[i]

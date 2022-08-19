@@ -36,10 +36,12 @@ body {
 
 .my-row {
   background-color: rgba(232, 226, 226, 0.994);
+  width: 1700px;
   border: 20px solid rgb(145, 145, 145);
 }
 
 .my-row-2 {
+  width: 1000px;
   background-color: rgba(232, 226, 226, 0.994);
   border: 20px solid rgb(145, 145, 145);
 }

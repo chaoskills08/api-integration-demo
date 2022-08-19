@@ -28,7 +28,7 @@ const getReviews = function(title) {
     },
     format: 'json',
   })
-
+  
     .then(function (response) {
       // console.log(response)
       return response.json()

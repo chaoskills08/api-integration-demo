@@ -15,12 +15,12 @@ Spoonacular: https://spoonacular.com/food-api/docs
 
 
 ## Screenshot of Application
-![image](https://user-images.githubusercontent.com/55863153/185509847-81d47b8f-cb90-4468-b050-65084f1347c8.png)
+![image](https://user-images.githubusercontent.com/55863153/185663778-63f84feb-635b-4bd0-bac7-67b85070f2bc.png)
 
 
 
 
 
 ## Deployed Application 
-https://chaoskills08.github.io/api-integration-demo/
+https://chaoskills08.github.io/gamerfoods
 

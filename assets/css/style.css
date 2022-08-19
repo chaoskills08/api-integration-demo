@@ -1,7 +1,12 @@
 body {
   background-color: rgb(251, 251, 251);
   background-image: url('../images/andrew-kliatskyi-ZceT2m9wV7w-unsplash.jpg');
-  background-repeat: unset
+  background-repeat: unset;
+  margin: 0 auto;
+}
+
+.li {
+ background-color:  rgba(232, 226, 226, 0.994);
 }
 
 .jumbotron {
@@ -46,9 +51,6 @@ body {
   border: 20px solid rgb(145, 145, 145);
 }
 
-
-
-
 .my-col {
   border: 3px solid black;
   text-align: center;
@@ -69,4 +71,22 @@ body {
 .flex {
   display: flex;
   justify-content: center;
+}
+
+.foodElement ul {
+list-style: circle;
+text-align: justify;
+font-size: larger;
+}
+
+.foodElement ol {
+  font-size: larger;
+  text-align: justify;
+}
+
+#foodImg {
+padding: 5px;
+width: 275px;
+height: 275px;
+  
 }

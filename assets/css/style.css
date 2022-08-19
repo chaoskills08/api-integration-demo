@@ -1,11 +1,10 @@
-
 body {
   background-color: rgb(251, 251, 251);
   background-image: url('../images/andrew-kliatskyi-ZceT2m9wV7w-unsplash.jpg');
   background-repeat:unset
 }
 
-.jumbotron{
+.jumbotron {
   color: aliceblue;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-style: italic;
@@ -22,6 +21,11 @@ body {
   text-shadow: 2px 2px rgb(6, 96, 213);
 }
 
+
+.my-container {
+  margin: 30px;
+  }
+  
 .my-container {
  margin: 30px;
   display: flex;
@@ -31,8 +35,8 @@ body {
 
 
 .my-row {
-  width: 1700px;
   background-color: rgba(232, 226, 226, 0.994);
+  width: 1700px;
   border: 20px solid rgb(145, 145, 145);
 }
 

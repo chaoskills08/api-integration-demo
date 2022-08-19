@@ -157,17 +157,17 @@ function getApiIngredients(ingredientsUrl) {
       img.setAttribute('src', data.recipes[0].image);
       img.setAttribute('class', 'foodElement')
       titleFoodEl.appendChild(img);
-      document.getElementById('foodImg').width = '350';
-      document.getElementById('foodImg').height = '300';
       for (var i = 0; i < data.recipes[0].extendedIngredients.length; i++) {
         var ingredientName = document.createElement('li');
         ingredientName.setAttribute('class', 'foodElement')
+        ingredientName.setAttribute('class', 'list-group-item')
         ingredientName.textContent = data.recipes[0].extendedIngredients[i].original;
         ingredientsListEl.append(ingredientName);
       }
       for (var j = 0; j < data.recipes[0].analyzedInstructions[0].steps.length; j++) {
         var stepName = document.createElement('li');
-        stepName.setAttribute('class', 'foodElement')
+        stepName.setAttribute('class', 'foodElement');
+        stepName.setAttribute('class', 'list-group-item');
         stepName.textContent = data.recipes[0].analyzedInstructions[0].steps[j].step
         // console.log(data.recipes[0].analyzedInstructions[0].steps[j].step)
         stepListEl.append(stepName);

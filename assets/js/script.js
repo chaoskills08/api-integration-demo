@@ -1,12 +1,13 @@
 var gameId = 0;
 //this is going to be set to whatever the logic is going to be from the game data.
-var ingredientsUrl = 'https://chaoskills08.github.io/gamerfoods/https://api.spoonacular.com/recipes/random?apiKey=eef65463463f4606aa3cc0949221a1d6&cuisine=' + id;
+var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=eef65463463f4606aa3cc0949221a1d6&cuisine=' + id;
 var responseText = document.getElementById('response-text');
 var buttonName = document.getElementById('genBtn');
 var ingredients = document.getElementById("ingredientsList");
 var responseText = document.getElementById('response-text');
 var id = 0 //this is going to be set to whatever the logic is going to be from the game data.
-var reviewsUrl = 'https://chaoskills08.github.io/gamerfoods/https://www.giantbomb.com/api/reviews/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&filter=score:5&sort=score:asc&format=json&limit=5'
+var apiUrl = 'https://www.giantbomb.com/api/games/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&format=json'
+var reviewsUrl = 'https://www.giantbomb.com/api/reviews/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&filter=score:5&sort=score:asc&format=json&limit=5'
 var gameBtns = document.getElementsByClassName("gameButtons");
 var gameInfo = document.getElementById("gameInfo");
 var descInfo = document.getElementById('descInfo');
@@ -156,17 +157,17 @@ function getApiIngredients(ingredientsUrl) {
       img.setAttribute('src', data.recipes[0].image);
       img.setAttribute('class', 'foodElement')
       titleFoodEl.appendChild(img);
+      document.getElementById('foodImg').width = '350';
+      document.getElementById('foodImg').height = '300';
       for (var i = 0; i < data.recipes[0].extendedIngredients.length; i++) {
         var ingredientName = document.createElement('li');
         ingredientName.setAttribute('class', 'foodElement')
-        ingredientName.setAttribute('class', 'list-group-item')
         ingredientName.textContent = data.recipes[0].extendedIngredients[i].original;
         ingredientsListEl.append(ingredientName);
       }
       for (var j = 0; j < data.recipes[0].analyzedInstructions[0].steps.length; j++) {
         var stepName = document.createElement('li');
-        stepName.setAttribute('class', 'foodElement');
-        stepName.setAttribute('class', 'list-group-item');
+        stepName.setAttribute('class', 'foodElement')
         stepName.textContent = data.recipes[0].analyzedInstructions[0].steps[j].step
         // console.log(data.recipes[0].analyzedInstructions[0].steps[j].step)
         stepListEl.append(stepName);

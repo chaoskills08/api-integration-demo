@@ -42,10 +42,10 @@
 
   <br>
 
-  <div>
+  <div class="flex">
     <div class="container my-container">
       <div class="row my-row">
-        <div class="col-md-4 my-col" id="gameInfo">
+        <div class="col-md-4 my-col flex" id="gameInfo">
           <h1><u>Game</u></h1>
           <h2 id="h2Create"></h2>
         </div>
@@ -60,24 +60,19 @@
 
   <br>
 
-  <div>
-    <div class="container my-container">
-      <div class="row my-row">
-        <div class="col-4 my-col" id="titleFood">
-          <h1><u>Food</u></h1>
+  <div class="flex">
+    <div class="container my-container" id="foodInfo">
+      <div class="row my-row foodElement">
+        <div class="col-4 my-col foodElement" id="titleFood">
+          <h1 class="foodElement"><u class="foodElement">Food</u></h1>
         </div>
 
-        <div class="col-8 my-col" id="">
-          <h2><u>Ingredients</u></h2>
-          <ul id="ingList"></ul>
-          <ol id="stepList"></ol>
+        <div class="col-8 my-col foodElement">
+          <h2 class="foodElement"><u class="foodElement">Ingredients</u></h2>
+          <ul id="ingList" class="foodElement"></ul>
+          <ol id="stepList" class="foodElement"></ol>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row my-row">
-    <div class="col-md-5 my-col" id="savedContainer">
-      <h2>History</h2>
     </div>
   </div>
 

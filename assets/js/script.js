@@ -1,6 +1,6 @@
 var gameId = 0;
 //this is going to be set to whatever the logic is going to be from the game data.
-var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=ce59c3857d88456a8cfdea4cbb92dd54&cuisine=' + id;
+var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=ebbc0b7a9b7c4b61b20f0c5356d4334c&cuisine=' + id;
 var responseText = document.getElementById('response-text');
 var buttonName = document.getElementById('genBtn');
 var ingredients = document.getElementById("ingredientsList");

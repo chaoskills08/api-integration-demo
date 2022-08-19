@@ -1,7 +1,7 @@
 body {
   background-color: rgb(251, 251, 251);
   background-image: url('../images/andrew-kliatskyi-ZceT2m9wV7w-unsplash.jpg');
-  background-repeat:unset
+  background-repeat: unset
 }
 
 .jumbotron {
@@ -10,7 +10,7 @@ body {
   font-style: italic;
   border-bottom: 8px solid black;
   background-image: url('../images/angelo-abear-Tmn0epKq7vI-unsplash.jpg');
-  text-shadow: 7px 7px rgb(0, 0, 0) ;
+  text-shadow: 7px 7px rgb(0, 0, 0);
 }
 
 .lead {
@@ -24,10 +24,10 @@ body {
 
 .my-container {
   margin: 30px;
-  }
-  
+}
+
 .my-container {
- margin: 30px;
+  margin: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,14 +36,10 @@ body {
 
 .my-row {
   background-color: rgba(232, 226, 226, 0.994);
-  height: 400px;
-  width: 1700px;
   border: 20px solid rgb(145, 145, 145);
 }
 
 .my-row-2 {
-  height: 400px;
-  width: 1000px;
   background-color: rgba(232, 226, 226, 0.994);
   border: 20px solid rgb(145, 145, 145);
 }

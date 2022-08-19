@@ -17,6 +17,8 @@ var stepListEl = document.getElementById("stepList");
 var savedData = [];
 var savedDataFood = [];
 var savedDataGame = [];
+var foodInfo = document.querySelector('#foodInfo').children;
+console.log(foodInfo)
 
 function getReviews(title) {
   fetch(reviewsUrl, {
@@ -41,6 +43,7 @@ function getReviews(title) {
         if (savedDataGame.length > 5) { //returns last 5 entries of food titles
           savedDataGame.pop();
         }
+        console.log(savedDataGame)
         localStorage.setItem("savedDataGame", JSON.stringify(savedDataGame));
         var gameCreate = document.getElementById('h2Create')
         var descCreate = document.getElementById('pCreate')
@@ -141,6 +144,7 @@ function getApiIngredients(ingredientsUrl) {
       var name = data.recipes[0].title;
       console.log(data);
       var header = document.createElement('h2');
+      header.setAttribute("class", "foodElement")
       header.textContent = name;
       titleFoodEl.appendChild(header);
       savedDataFood.push(data.recipes[0].title);
@@ -156,16 +160,33 @@ function getApiIngredients(ingredientsUrl) {
       document.getElementById('foodImg').height = '300';
       for (var i = 0; i < data.recipes[0].extendedIngredients.length; i++) {
         var ingredientName = document.createElement('li');
+        ingredientName.setAttribute('class', 'foodElement')
         ingredientName.textContent = data.recipes[0].extendedIngredients[i].original;
         ingredientsListEl.append(ingredientName);
       }
       for (var j = 0; j < data.recipes[0].analyzedInstructions[0].steps.length; j++) {
         var stepName = document.createElement('li');
+        stepName.setAttribute('class', 'foodElement')
         stepName.textContent = data.recipes[0].analyzedInstructions[0].steps[j].step
         console.log(data.recipes[0].analyzedInstructions[0].steps[j].step)
         stepListEl.append(stepName);
       }
     })
+}
+function clearData() {
+  var clearDivs = document.getElementById('foodInfo').getElementsByClassName('foodElement')
+  console.log(clearDivs)
+
+  console.log('is trueee')
+  for (let i = 0; i < clearDivs.length; i++) {
+    var currentElement = clearDivs[i]
+    // console.log(currentElement.tagName)
+    if (currentElement.localName === 'ul') {
+      console.log(currentElement)
+      Node.removeChild(currentElement)
+    }
+  }
+
 }
 
 function idLogic(gameId) {
@@ -187,27 +208,27 @@ function idLogic(gameId) {
   }
 }
 
-function renderMessage() {
-  var showDataFood = JSON.parse(localStorage.getItem("savedDataFood"))
-  var showDataGame = JSON.parse(localStorage.getItem("savedDataGame"))
-  for (var k = 0; k < showDataFood.length; k++) {
-    var savedStuff = document.createElement('p');
-    savedStuff.textContent = showDataGame + " and " + showDataFood;
-    savedContainer.append(savedStuff);
-  }
-}
+// COMMENTED OUT FOR FUTURE DEV
+// function renderMessage() {
+//   var showDataFood = JSON.parse(localStorage.getItem("savedDataFood"))
+//   var showDataGame = JSON.parse(localStorage.getItem("savedDataGame"))
+//   for (var k = 0; k < showDataFood.length; k++) {
+//     var savedStuff = document.createElement('p');
+//     savedStuff.textContent = showDataGame + " and " + showDataFood;
+//     savedContainer.append(savedStuff);
+//   }
+// }
 
-renderMessage()
+// renderMessage()
 
 for (let i = 0; i < gameBtns.length; i++) {
   const gameBtn = gameBtns[i]
 
   gameBtn.addEventListener('click', function () {
-    getReviews(gameBtn.dataset.game) // or pass gameBtn.innerText i don't care
+    if (ingredientsListEl.hasChildNodes()) {
+      clearData()
+    } else {
+      getReviews(gameBtn.dataset.game)
+    }
   })
-  // document.querySelector('.gameButtons').addEventListener("click", function () {
-  //   console.log("This button works");
-  //   getApi(instructionsUrl);
-  //   getApiIngredients(ingredientsUrl);
-  // })
 }

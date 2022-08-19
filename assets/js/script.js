@@ -1,12 +1,12 @@
 var gameId = 0;
 //this is going to be set to whatever the logic is going to be from the game data.
-var ingredientsUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://api.spoonacular.com/recipes/random?apiKey=eef65463463f4606aa3cc0949221a1d6&cuisine=' + id;
+var ingredientsUrl = 'https://api.spoonacular.com/recipes/random?apiKey=eef65463463f4606aa3cc0949221a1d6&cuisine=' + id;
 var responseText = document.getElementById('response-text');
 var buttonName = document.getElementById('genBtn');
 var ingredients = document.getElementById("ingredientsList");
 var responseText = document.getElementById('response-text');
 var id = 0 //this is going to be set to whatever the logic is going to be from the game data.
-var reviewsUrl = 'https:russelldev-cors-anywhere.herokuapp.com/https://www.giantbomb.com/api/reviews/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&filter=score:5&sort=score:asc&format=json&limit=5'
+var reviewsUrl = 'https://www.giantbomb.com/api/reviews/?api_key=aae6cead4d664ca28d5080355fbaefc5085d2381&filter=score:5&sort=score:asc&format=json&limit=5'
 var gameBtns = document.getElementsByClassName("gameButtons");
 var gameInfo = document.getElementById("gameInfo");
 var descInfo = document.getElementById('descInfo');
